@@ -193,6 +193,7 @@ Report bugs at <https://github.com/haskell/ghcup-hs/issues>|]
           (settings, keybindings, userConf) <- toSettings no_color pagerCmd opt
 
           -- logger interpreter
+          hSetBuffering stderr LineBuffering
           logfile <- runReaderT initGHCupFileLogging dirs
           let loggerConfig = LoggerConfig
                 { lcPrintDebug = verbose settings
